@@ -1,0 +1,65 @@
+CREATE  DATABASE  db_testeSQL;
+
+
+USE db_testeSQL;
+
+
+
+create table dm_address_type (
+cd_address_type char(1) primary key,
+ds_address_type varchar(11))
+
+
+insert into dm_address_type
+Values('R','Residêncial')
+
+insert into dm_address_type
+Values('C','Comercial')
+
+insert into dm_address_type
+Values('O','Outros')
+
+
+select*from dm_address_type
+
+
+create table tb_customer(
+id_customer int primary key identity(1,1),
+nm_customer varchar(100) not null,
+cpf_cnpj numeric(15,0) unique not null)
+
+
+
+create table tb_customer_address(
+id_customer int,
+cd_address_type char(1),
+street varchar(100),
+lot integer,
+reference varchar(50),
+zip_code varchar (9),
+CONSTRAINT fk_id_customer FOREIGN KEY (id_customer) REFERENCES tb_customer (id_customer),
+CONSTRAINT fk_cd_address_type FOREIGN KEY (cd_address_type) REFERENCES dm_address_type (cd_address_type),
+CONSTRAINT PK_CustomerAddress PRIMARY KEY (id_customer, cd_address_type)
+)
+
+
+INSERT INTO tb_customer (nm_customer,cpf_cnpj)
+Values	('Joãozinho Silva', 88877766655);
+SELECT SCOPE_IDENTITY () AS IdLastCustomer;
+INSERT INTO tb_customer_address(id_customer, cd_address_type, street, lot, reference,zip_code)
+Values	(1,'R' , 'Rua das Flores', 1 , '', '01234-567' ),
+	    (1, 'C' , 'Rua das Pedras' , 100 , 'Conjuntos 200' , '01234-567' )
+
+
+
+select A.nm_customer[Nome Cliente],A.cpf_cnpj[CPF/CNPJ],B.street,C.ds_address_type[Tipo Endereço], B.lot[Número],B.reference[Referência],B.zip_code[CEP]
+from tb_customer as A
+join tb_customer_address B on A.id_customer=B.id_customer
+join dm_address_type C on B.cd_address_type=C.cd_address_type
+
+
+
+
+
+DELETE FROM tb_customer_address WHERE tb_customer_address.id_customer = (SELECT id_customer FROM tb_customer WHERE cpf_cnpj = 88877766655);
+DELETE FROM tb_customer WHERE cpf_cnpj = 88877766655
