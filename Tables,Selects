@@ -1,0 +1,66 @@
+DROP TABLE Funcionario
+
+CREATE TABLE Funcionario (
+idFuncionario int primary key identity (1,1),
+nomeFuncionario VARCHAR(100) not null,
+rgFuncionario VARCHAR(20) not null,
+cpfFuncionario NUMERIC(11,0) not null,
+dtNascFuncionario DATETIME not null, 
+endFuncionario VARCHAR(200) not null,
+telFuncionario NUMERIC(15,0) not NULL,
+whatsFuncionario NUMERIC(15,0)not null,
+emailFuncionario VARCHAR(100) not null,
+escolaridadeFuncionario VARCHAR(200)not null,
+cargoFuncionario VARCHAR(100)not null,
+dtemissao DATETIME not null,
+dtDemissao DATETIME not null,
+sexoFuncionario VARCHAR(10) not null,
+estcivilFuncionario VARCHAR(20) not null,
+dtPgtoFuncionario DATETIME not null,
+valorSalarioFuncionario NUMERIC(10,2) not null,
+usuarioFuncionario VARCHAR(100) not null,
+senhaFuncionario VARCHAR(100) not null,
+)
+
+
+DROP PROC ps_Funcionario2
+
+create procedure pi_Funcionario (
+@nomeFuncionario VARCHAR(100),
+@rgFuncionario VARCHAR(20),
+@cpfFuncionario NUMERIC(11,0),
+@dtNascFuncionario DATETIME ,
+@endFuncionario VARCHAR(200),
+@telFuncionario NUMERIC(15,0),
+@whatsFuncionario NUMERIC(15,0),
+@emailFuncionario VARCHAR(100),
+@escolaridadeFuncionario VARCHAR(200),
+@cargoFuncionario VARCHAR(100),
+@dtemissao DATETIME ,
+@dtdemissao DATETIME ,
+@sexoFuncionario VARCHAR(10),
+@estcivilFuncionario VARCHAR(20),
+@dtPgtoFuncionario DATETIME ,
+@valorSalarioFuncionario NUMERIC(10,2),
+@usuarioFuncionario VARCHAR(100),
+@senhaFuncionario VARCHAR(100)
+)
+AS
+INSERT INTO Funcionario (nomeFuncionario, rgFuncionario, cpfFuncionario, dtNascFuncionario, endFuncionario, telFuncionario, whatsFuncionario, emailFuncionario, escolaridadeFuncionario, cargoFuncionario, dtemissao, dtdemissao, sexoFuncionario, estcivilFuncionario, dtPgtoFuncionario, valorSalarioFuncionario, usuarioFuncionario, senhaFuncionario)
+values (@nomeFuncionario, @rgFuncionario, @cpfFuncionario, @dtNascFuncionario, @endFuncionario, @telFuncionario, @whatsFuncionario, @emailFuncionario, @escolaridadeFuncionario, @cargoFuncionario, @dtemissao, @dtdemissao, @sexoFuncionario, @estcivilFuncionario, @dtPgtoFuncionario, @valorSalarioFuncionario, @usuarioFuncionario, @senhaFuncionario)
+
+create procedure ps_Funcionario2
+@usuarioFuncionario VARCHAR(100)
+as
+select usuarioFuncionario, nomeFuncionario, senhaFuncionario, cpfFuncionario
+from Funcionario
+where usuarioFuncionario = @usuarioFuncionario
+
+SELECT * FROM Funcionario
+
+create procedure pd_Funcionario2
+@usuarioFuncionario VARCHAR(100)
+as
+delete Funcionario
+where usuarioFuncionario = @usuarioFuncionario
+
