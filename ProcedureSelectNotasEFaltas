@@ -1,0 +1,17 @@
+create procedure [dbo].[ps_NotasDGV]
+
+ @nomeAluno varchar(100)
+
+ as
+
+SELECT A.idAluno,A.nomeAluno,D.idDisciplina,D.nomeDisciplina,sum(At.mencaoAtividade) as 'mencao',avg(At.mencaoAtividade) as 'media',sum(At.faltasAtividade) as 'Faltas'
+
+from Atividade At
+
+inner JOIN Disciplina D  on At.idDisciplina=D.idDisciplina
+
+inner join Aluno A  on A.idAluno=At.idAluno 
+
+where nomeAluno like '%' +  @nomeAluno + '%' group by A.idAluno,A.nomeAluno,D.idDisciplina,D.nomeDisciplina
+
+order by A.nomeAluno asc
