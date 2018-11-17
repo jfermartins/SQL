@@ -1,0 +1,6 @@
+CREATE PROCEDURE [dbo].[ps_OcorrenciaLaboratorio]
+@natOcorLaboratorio varchar(100)
+AS
+SELECT natOcorLaboratorio,dtOcorLaboratorio, hrOcorLaboratorio,provOcrLaboratorio, solucaoOcorLaboratorio
+From OcorrenciaLaboratorio
+WHERE natOcorLaboratorio = @natOcorLaboratorio
