@@ -1,0 +1,17 @@
+CREATE PROCEDURE [dbo].[pi_CadastroAluno](
+@nomeAluno			VARCHAR (100),
+@rgAluno			INT,
+@cpfAluno			NUMERIC (11,0),
+@dnAluno			DATETIME,
+@estadoCivilAluno	VARCHAR (100),
+@generoAluno		VARCHAR (20),
+@enderecoAluno		VARCHAR (100),
+@telResAluno		NUMERIC (11,0),
+@celAluno			NUMERIC (11,0) = NULL,
+@whatsAluno			NUMERIC (11,0) = NULL,
+@emailAluno			VARCHAR (100),
+@obsAluno			VARCHAR (8000)
+)
+AS
+INSERT INTO Aluno(nomeAluno, rgAluno, cpfAluno, dnAluno, estadoCivilAluno, generoAluno, enderecoAluno, telResAluno, celAluno, whatsAluno, emailAluno, obsAluno)
+VALUES (@nomeAluno, @rgAluno, @cpfAluno, @dnAluno, @estadoCivilAluno, @generoAluno, @enderecoAluno, @telResAluno, @celAluno, @whatsAluno, @emailAluno, @obsAluno)
