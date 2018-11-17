@@ -1,0 +1,5 @@
+create procedure [dbo].[ps_Disciplina]
+@nomeDisciplina varchar(100)
+as
+select*from Disciplina
+where nomeDisciplina=@nomeDisciplina
