@@ -1,0 +1,13 @@
+create procedure [dbo].[pi_Atividade]
+@nomeAtividade varchar(100),
+@conteudoAtividade varchar(200),
+@dtHrAtividade datetime,
+@docenteAtividade varchar(100),
+@mencaoAtividade numeric(3,0),
+@faltasAtividade int,
+@idAluno int,
+@idDisciplina int,
+@idFuncionario int
+as
+insert into Atividade (nomeAtividade,conteudoAtividade, dtHrAtividade,docenteAtividade,mencaoAtividade,faltasAtividade,idAluno,idDisciplina,idFuncionario)
+values (@nomeAtividade,@conteudoAtividade,@dtHrAtividade,@docenteAtividade,@mencaoAtividade,@faltasAtividade,@idAluno,@idDisciplina,@idFuncionario)
