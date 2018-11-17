@@ -1,0 +1,11 @@
+CREATE PROCEDURE [dbo].[pi_MatriculaAluno]
+@dataMatriculaAluno		DATETIME,
+@valorTotalPagtoAluno	NUMERIC (10,2),
+@formaPagtoAluno		VARCHAR (50),
+@modoPagtoParcelado		VARCHAR (50),
+@obsMatriculaAluno		VARCHAR (8000),
+@idAluno				INT,
+@idDisciplina INT
+AS
+INSERT INTO MatriculaAluno(dataMatriculaAluno, valorTotalPagtoAluno, formaPagtoAluno, modoPagtoParcelado, obsMatriculaAluno, idAluno,idDisciplina)
+VALUES (@dataMatriculaAluno, @valorTotalPagtoAluno, @formaPagtoAluno, @modoPagtoParcelado, @obsMatriculaAluno, @idAluno,@idDisciplina)
