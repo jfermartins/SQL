@@ -1,0 +1,6 @@
+CREATE PROCEDURE [dbo].[ps_laboratorio]
+@nomeLaboratorio VARCHAR (20)
+AS
+SELECT nomeLaboratorio, horarioLaboratorio, nomeTecLaboratorio, rgTecLaboratorio
+From Laboratorio
+WHERE nomeLaboratorio = @nomeLaboratorio
