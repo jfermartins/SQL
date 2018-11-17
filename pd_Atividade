@@ -1,3 +1,5 @@
+//Stored Procedure criada para desenvolvimento de  software de uma Escola de Informática (requisito para obtenção diploma técnico informática)
+
 create procedure [dbo].[pd_Atividade]
 @idAtividade int
 as
