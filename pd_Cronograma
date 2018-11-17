@@ -1,0 +1,5 @@
+create procedure [dbo].[pd_Cronograma]
+@idCronograma int
+as 
+delete CronogramaSala
+where idCronograma=@idCronograma
