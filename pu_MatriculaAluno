@@ -1,0 +1,17 @@
+CREATE PROCEDURE [dbo].[pu_MatriculaAluno]
+@dataMatriculaAluno		DATETIME,
+@valorTotalPagtoAluno	NUMERIC (6,2),
+@formaPagtoAluno		VARCHAR (50),
+@modoPagtoParcelado		VARCHAR (50),
+@obsMatriculaAluno		VARCHAR (8000)
+AS
+DECLARE @idAluno	INT
+UPDATE MatriculaAluno
+SET
+dataMatriculaAluno = @dataMatriculaAluno,
+valorTotalPagtoAluno = @valorTotalPagtoAluno,
+formaPagtoAluno = @formaPagtoAluno,
+modoPagtoParcelado = @modoPagtoParcelado,
+obsMatriculaAluno = @obsMatriculaAluno
+WHERE
+idAluno = @idAluno
