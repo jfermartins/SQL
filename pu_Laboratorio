@@ -1,0 +1,12 @@
+CREATE PROCEDURE [dbo].[pu_Laboratorio]
+@nomeLaboratorio VARCHAR (20),
+@horarioLaboratorio DATETIME,
+@nomeTecLaboratorio varchar (20),
+@rgTecLaboratorio VARCHAR (20)
+AS
+UPDATE Laboratorio
+SET nomeLaboratorio = @nomeLaboratorio,
+horarioLaboratorio = @horarioLaboratorio,
+nomeTecLaboratorio = @nomeTecLaboratorio,
+rgTecLaboratorio = @rgTecLaboratorio
+WHERE @nomeLaboratorio = @nomeLaboratorio
