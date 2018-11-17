@@ -1,0 +1,7 @@
+create procedure [dbo].[ps_Login]
+@usuarioFuncionario varchar(50),
+@senhaFuncionario varchar(20)
+as
+select*from Funcionario
+where usuarioFuncionario=@usuarioFuncionario
+and senhaFuncionario=@senhaFuncionario
