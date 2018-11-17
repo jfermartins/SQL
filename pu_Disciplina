@@ -1,0 +1,9 @@
+create procedure [dbo].[pu_Disciplina]
+@idDisciplina int,
+@docenteDisciplina varchar(100),
+@cargaHorariaDisciplina numeric(10,0),
+@idFuncionario int
+as
+update Disciplina
+set docenteDisciplina=@docenteDisciplina,cargaHorariaDisciplina=@cargaHorariaDisciplina,idFuncionario=@idFuncionario
+where idDisciplina=@idDisciplina
