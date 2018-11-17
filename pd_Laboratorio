@@ -1,0 +1,5 @@
+CREATE PROCEDURE [dbo].[pd_Laboratorio]
+@idLaboratorio              INT
+AS
+DELETE Laboratorio
+WHERE idLaboratorio = @idLaboratorio
