@@ -1,0 +1,5 @@
+create procedure [dbo].[ps_notas]
+@idAluno int
+as
+select*from MediaeFaltas
+where idAluno=@idAluno
