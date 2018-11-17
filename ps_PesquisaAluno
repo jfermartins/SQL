@@ -1,0 +1,8 @@
+CREATE PROCEDURE [dbo].[ps_PesquisaAluno]  
+@cpfAluno  NUMERIC (11,0)  
+AS  
+SELECT A.nomeAluno, A.cpfAluno, M.idMatriculaAluno  
+FROM Aluno A  
+LEFT JOIN MatriculaAluno M  
+ON A.idAluno = M.idAluno  
+WHERE cpfAluno = @cpfAluno
