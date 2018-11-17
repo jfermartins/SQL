@@ -1,0 +1,11 @@
+CREATE PROCEDURE [dbo].[pi_CronogramaSala]
+@dtHrSala datetime,
+@nomeDocenteSala varchar(20),
+@disciplinaSala varchar(20) ,
+@turmaSala varchar(10),
+@dadosSala varchar(20) ,
+@idDisciplina int ,
+@idFuncionario int 
+AS 
+INSERT INTO CronogramaSala (dtHrSala,nomeDocenteSala,disciplinaSala,turmaSala,dadosSala,idDisciplina,idFuncionario)
+VALUES( @dtHrSala,@nomeDocenteSala,@disciplinaSala,@turmaSala,@dadosSala,@idDisciplina,@idFuncionario)
