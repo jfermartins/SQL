@@ -1,0 +1,257 @@
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[pu_OcorrenciaLaboratorio]
+@idOcorrenciaLaboratorio    INT,
+@natOcorLaboratorio         VARCHAR(100),
+@dtOcorLaboratorio          DATETIME,
+@hrOcorLaboratorio          DATETIME,
+@provOcrLaboratorio         VARCHAR(200),
+@solucaoOcorLaboratorio     VARCHAR(200) 
+AS
+UPDATE pu_OcorrenciaLaboratorio
+SET idOcorrenciaLaboratorio = @idOcorrenciaLaboratorio,
+   natOcorLaboratorio = @natOcorLaboratorio,   
+   dtOcorLaboratorio = @dtOcorLaboratorio, 
+   hrOcorLaboratorio = @hrOcorLaboratorio,
+   provOcrLaboratorio = @provOcrLaboratorio, 
+   solucaoOcorLaboratorio = @solucaoOcorLaboratorio
+WHERE idOcorrenciaLaboratorio = @idOcorrenciaLaboratorio
+
+GO
+/****** Object:  Table [dbo].[Aluno]    Script Date: 08/12/2017 00:22:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Aluno](
+	[idAluno] [int] IDENTITY(1,1) NOT NULL,
+	[nomeAluno] [varchar](100) NOT NULL,
+	[rgAluno] [int] NOT NULL,
+	[cpfAluno] [numeric](11, 0) NOT NULL,
+	[dnAluno] [datetime] NOT NULL,
+	[estadoCivilAluno] [varchar](100) NULL,
+	[generoAluno] [varchar](20) NULL,
+	[enderecoAluno] [varchar](100) NOT NULL,
+	[telResAluno] [numeric](11, 0) NOT NULL,
+	[celAluno] [numeric](11, 0) NULL,
+	[whatsAluno] [numeric](11, 0) NULL,
+	[emailAluno] [varchar](100) NULL,
+	[obsAluno] [varchar](8000) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[idAluno] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[cpfAluno] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Atividade]    Script Date: 08/12/2017 00:22:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Atividade](
+	[idAtividade] [int] IDENTITY(1,1) NOT NULL,
+	[nomeAtividade] [varchar](100) NOT NULL,
+	[conteudoAtividade] [varchar](200) NOT NULL,
+	[dtHrAtividade] [datetime] NOT NULL,
+	[docenteAtividade] [varchar](100) NOT NULL,
+	[mencaoAtividade] [numeric](3, 0) NOT NULL,
+	[faltasAtividade] [int] NOT NULL,
+	[idAluno] [int] NOT NULL,
+	[idDisciplina] [int] NOT NULL,
+	[idFuncionario] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[idAtividade] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[CronogramaSala]    Script Date: 08/12/2017 00:22:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[CronogramaSala](
+	[idCronograma] [int] IDENTITY(1,1) NOT NULL,
+	[dtHrSala] [datetime] NOT NULL,
+	[nomeDocenteSala] [varchar](20) NOT NULL,
+	[disciplinaSala] [varchar](20) NOT NULL,
+	[turmaSala] [varchar](10) NOT NULL,
+	[dadosSala] [varchar](20) NOT NULL,
+	[idDisciplina] [int] NOT NULL,
+	[idFuncionario] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[idCronograma] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Disciplina]    Script Date: 08/12/2017 00:22:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Disciplina](
+	[idDisciplina] [int] IDENTITY(1,1) NOT NULL,
+	[nomeDisciplina] [varchar](100) NOT NULL,
+	[docenteDisciplina] [varchar](100) NOT NULL,
+	[idFuncionario] [int] NOT NULL,
+	[cargaHorariaDisciplina] [numeric](10, 0) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[idDisciplina] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Funcionario]    Script Date: 08/12/2017 00:22:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Funcionario](
+	[idFuncionario] [int] IDENTITY(1,1) NOT NULL,
+	[nomeFuncionario] [varchar](100) NOT NULL,
+	[rgFuncionario] [varchar](20) NOT NULL,
+	[cpfFuncionario] [numeric](11, 0) NOT NULL,
+	[dtNascFuncionario] [datetime] NOT NULL,
+	[endFuncionario] [varchar](200) NOT NULL,
+	[telFuncionario] [numeric](15, 0) NOT NULL,
+	[whatsFuncionario] [numeric](15, 0) NOT NULL,
+	[emailFuncionario] [varchar](100) NOT NULL,
+	[escolaridadeFuncionario] [varchar](200) NOT NULL,
+	[cargoFuncionario] [varchar](100) NOT NULL,
+	[dtemissao] [datetime] NOT NULL,
+	[dtDemissao] [datetime] NOT NULL,
+	[sexoFuncionario] [varchar](10) NOT NULL,
+	[estcivilFuncionario] [varchar](20) NOT NULL,
+	[dtPgtoFuncionario] [varchar](1) NOT NULL,
+	[valorSalarioFuncionario] [numeric](10, 2) NOT NULL,
+	[usuarioFuncionario] [varchar](100) NOT NULL,
+	[senhaFuncionario] [varchar](100) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[idFuncionario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[MatriculaAluno]    Script Date: 08/12/2017 00:22:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[MatriculaAluno](
+	[idMatriculaAluno] [int] IDENTITY(1,1) NOT NULL,
+	[idAluno] [int] NOT NULL,
+	[idDisciplina] [int] NOT NULL,
+	[dataMatriculaAluno] [datetime] NOT NULL,
+	[valorTotalPagtoAluno] [numeric](6, 2) NOT NULL,
+	[formaPagtoAluno] [varchar](50) NOT NULL,
+	[modoPagtoParcelado] [varchar](50) NOT NULL,
+	[obsMatriculaAluno] [varchar](8000) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[idMatriculaAluno] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[MediaeFaltas]    Script Date: 08/12/2017 00:22:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MediaeFaltas](
+	[idMediaeFaltas] [int] IDENTITY(1,1) NOT NULL,
+	[notaMediaeFaltas] [numeric](3, 2) NOT NULL,
+	[faltasMediaeFaltas] [int] NOT NULL,
+	[idAluno] [int] NOT NULL,
+	[idDisciplina] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[idMediaeFaltas] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+ALTER TABLE [dbo].[Atividade]  WITH CHECK ADD  CONSTRAINT [fk_Aluno_Atividade] FOREIGN KEY([idAluno])
+REFERENCES [dbo].[Aluno] ([idAluno])
+GO
+ALTER TABLE [dbo].[Atividade] CHECK CONSTRAINT [fk_Aluno_Atividade]
+GO
+ALTER TABLE [dbo].[Atividade]  WITH CHECK ADD  CONSTRAINT [fk_Disciplina_Atividade] FOREIGN KEY([idDisciplina])
+REFERENCES [dbo].[Disciplina] ([idDisciplina])
+GO
+ALTER TABLE [dbo].[Atividade] CHECK CONSTRAINT [fk_Disciplina_Atividade]
+GO
+ALTER TABLE [dbo].[Atividade]  WITH CHECK ADD  CONSTRAINT [fk_Funcionario] FOREIGN KEY([idFuncionario])
+REFERENCES [dbo].[Funcionario] ([idFuncionario])
+GO
+ALTER TABLE [dbo].[Atividade] CHECK CONSTRAINT [fk_Funcionario]
+GO
+ALTER TABLE [dbo].[CronogramaSala]  WITH CHECK ADD  CONSTRAINT [fk_Disciplina_Cronograma] FOREIGN KEY([idDisciplina])
+REFERENCES [dbo].[Disciplina] ([idDisciplina])
+GO
+ALTER TABLE [dbo].[CronogramaSala] CHECK CONSTRAINT [fk_Disciplina_Cronograma]
+GO
+ALTER TABLE [dbo].[CronogramaSala]  WITH CHECK ADD  CONSTRAINT [fk_Funcionario_Cronograma] FOREIGN KEY([idFuncionario])
+REFERENCES [dbo].[Funcionario] ([idFuncionario])
+GO
+ALTER TABLE [dbo].[CronogramaSala] CHECK CONSTRAINT [fk_Funcionario_Cronograma]
+GO
+ALTER TABLE [dbo].[Disciplina]  WITH CHECK ADD  CONSTRAINT [fk_Funcionario_Disciplina] FOREIGN KEY([idFuncionario])
+REFERENCES [dbo].[Funcionario] ([idFuncionario])
+GO
+ALTER TABLE [dbo].[Disciplina] CHECK CONSTRAINT [fk_Funcionario_Disciplina]
+GO
+ALTER TABLE [dbo].[MatriculaAluno]  WITH CHECK ADD  CONSTRAINT [fk_MatriculaAluno_Aluno] FOREIGN KEY([idAluno])
+REFERENCES [dbo].[Aluno] ([idAluno])
+GO
+ALTER TABLE [dbo].[MatriculaAluno] CHECK CONSTRAINT [fk_MatriculaAluno_Aluno]
+GO
+ALTER TABLE [dbo].[MatriculaAluno]  WITH CHECK ADD  CONSTRAINT [fk_MatriculaAluno_Disciplina] FOREIGN KEY([idDisciplina])
+REFERENCES [dbo].[Disciplina] ([idDisciplina])
+GO
+ALTER TABLE [dbo].[MatriculaAluno] CHECK CONSTRAINT [fk_MatriculaAluno_Disciplina]
+GO
+ALTER TABLE [dbo].[MediaeFaltas]  WITH CHECK ADD  CONSTRAINT [fk_Aluno_mediaseFaltas] FOREIGN KEY([idAluno])
+REFERENCES [dbo].[Aluno] ([idAluno])
+GO
+ALTER TABLE [dbo].[MediaeFaltas] CHECK CONSTRAINT [fk_Aluno_mediaseFaltas]
+GO
+ALTER TABLE [dbo].[MediaeFaltas]  WITH CHECK ADD  CONSTRAINT [fk_DisciplinamediaeFaltas] FOREIGN KEY([idDisciplina])
+REFERENCES [dbo].[Disciplina] ([idDisciplina])
+GO
+ALTER TABLE [dbo].[MediaeFaltas] CHECK CONSTRAINT [fk_DisciplinamediaeFaltas]
