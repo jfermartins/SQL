@@ -1,0 +1,9 @@
+create procedure [dbo].[pi_Laboratorio]
+@nomeLaboratorio            VARCHAR(20),
+@horarioLaboratorio         DATETIME,
+@nomeTecLaboratorio         VARCHAR(20),
+@rgTecLaboratorio          VARCHAR(20),
+@idFuncionario int
+as
+insert into Laboratorio (nomeLaboratorio, horarioLaboratorio, nomeTecLaboratorio, rgTecLaboratorio,idFuncionario)
+values (@nomeLaboratorio, @horarioLaboratorio, @nomeTecLaboratorio, @rgTecLaboratorio,@idFuncionario)
