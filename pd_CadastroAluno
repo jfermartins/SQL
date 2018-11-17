@@ -1,0 +1,15 @@
+CREATE PROCEDURE [dbo].[pd_CadastroAluno]
+@cpfAluno   NUMERIC (11,0)
+AS
+DECLARE @idAluno	INT
+SELECT @idAluno = idAluno
+FROM Aluno
+WHERE cpfAluno = @cpfAluno
+DELETE MediaeFaltas
+WHERE @idAluno = idAluno
+DELETE MatriculaAluno
+WHERE @idAluno = idAluno
+DELETE Atividade
+WHERE @idAluno = idAluno
+DELETE Aluno
+WHERE cpfAluno = @cpfAluno
