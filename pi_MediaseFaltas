@@ -1,0 +1,8 @@
+create procedure [dbo].[pi_MediaeFaltas]
+@notaMediaeFaltas numeric(3,2),
+@faltasMediaeFaltas int,
+@idAluno int,
+@idDisciplina int
+as
+insert into MediaeFaltas(notaMediaeFaltas,faltasMediaeFaltas,idAluno,idDisciplina)
+values(@notaMediaeFaltas,@faltasMediaeFaltas,@idAluno,@idDisciplina)
