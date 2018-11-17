@@ -1,0 +1,31 @@
+CREATE PROCEDURE [dbo].[pu_OcorrenciaGeral]
+@codOcorrencia             INT,
+@dtOcorrencia              DATETIME,
+@hrOcorrencia              DATETIME,
+@dtAtendOcorrencia         DATETIME,
+@hrAtendOcorrencia         DATETIME,
+@descrOcorrencia           VARCHAR(200),
+@nomeTecOcorrencia         VARCHAR(20),
+@regTecOcorrencia          VARCHAR(20) ,
+@setorTecOcorrencia        VARCHAR(10),
+@descrEquipOcorrencia      VARCHAR(200),
+@qtdEquipOcorrencia        INTEGER,
+@nomeEnvOcorrencia         VARCHAR(20),
+@medidaOcorrencia          VARCHAR(200),
+@solucaoOcorrencia         VARCHAR(200)
+AS
+UPDATE OcorrenciaGeral
+SET codOcorrencia = @codOcorrencia,
+dtOcorrencia = @dtOcorrencia,
+hrOcorrencia = @hrOcorrencia,
+dtAtendOcorrencia = @dtAtendOcorrencia,
+hrAtendOcorrencia = @hrAtendOcorrencia,
+descrOcorrencia = @descrOcorrencia,
+regTecOcorrencia = @nomeTecOcorrencia,
+setorTecOcorrencia = @setorTecOcorrencia,
+descrEquipOcorrencia = @descrEquipOcorrencia,
+qtdEquipOcorrencia = @qtdEquipOcorrencia,
+nomeEnvOcorrencia = @nomeEnvOcorrencia, 
+medidaOcorrencia = @medidaOcorrencia,
+solucaoOcorrencia = @solucaoOcorrencia 
+WHERE codOcorrencia = @codOcorrencia
