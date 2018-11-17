@@ -1,0 +1,8 @@
+create procedure [dbo].[ps_Atividade]
+@nomeAtividade varchar(100)
+as
+SELECT At.nomeAtividade[Atividade], A.nomeAluno[Aluno],D.nomeDisciplina[Disciplina],At.conteudoAtividade[Conteudo], At.dtHrAtividade[Data e Hora],At.docenteAtividade[Docente],At.mencaoAtividade[Nota],At.faltasAtividade[Faltas],At.idAtividade,D.idDisciplina,A.idAluno
+from Atividade At
+inner JOIN  Disciplina D on At.idDisciplina= D.idDisciplina
+inner JOIN Aluno A  ON A.idAluno = At.idAluno
+where nomeAtividade like '%' +  @nomeAtividade + '%'
