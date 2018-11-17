@@ -1,0 +1,15 @@
+create procedure [dbo].[pu_Atividade]
+@nomeAtividade varchar(100),
+@conteudoAtividade varchar(200),
+@dtHrAtividade datetime,
+@docenteAtividade varchar(100),
+@mencaoAtividade numeric(3,0),
+@faltasAtividade int,
+@idAluno int,
+@idDisciplina int,
+@idFuncionario int,
+@idAtividade int
+as
+update Atividade
+set nomeAtividade=@nomeAtividade,conteudoAtividade=@conteudoAtividade,dtHrAtividade=@dtHrAtividade,docenteAtividade=@docenteAtividade,mencaoAtividade=@mencaoAtividade,faltasAtividade=@faltasAtividade,idAluno=@idAluno,idDisciplina=@idDisciplina,idFuncionario=@idFuncionario
+where idAtividade=@idAtividade
