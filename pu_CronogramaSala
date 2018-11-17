@@ -1,0 +1,13 @@
+create procedure [dbo].[pu_CronogramaSala]
+@dtHrSala datetime,
+@nomeDocenteSala varchar(20),
+@disciplinaSala varchar(20) ,
+@turmaSala varchar(10),
+@dadosSala varchar(20) ,
+@idDisciplina int ,
+@idFuncionario int,
+@idCronograma int
+as
+update CronogramaSala
+set dtHrSala=@dtHrSala,nomeDocenteSala=@nomeDocenteSala,disciplinaSala=@disciplinaSala,turmaSala=@turmaSala,dadosSala=@dadosSala,idDisciplina=@idDisciplina,idFuncionario=@idFuncionario
+where idCronograma=@idCronograma
