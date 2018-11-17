@@ -1,0 +1,5 @@
+create procedure [dbo].[pd_Disciplina]
+@idDisciplina int
+as
+delete Disciplina
+where idDisciplina=@idDisciplina
