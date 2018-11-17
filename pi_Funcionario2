@@ -1,0 +1,22 @@
+create procedure [dbo].[pi_Funcionario2]
+@nomeFuncionario VARCHAR(100),
+@rgFuncionario VARCHAR(20),
+@cpfFuncionario NUMERIC(11,0),
+@dtNascFuncionario DATETIME ,
+@endFuncionario VARCHAR(200),
+@telFuncionario NUMERIC(15,0),
+@whatsFuncionario NUMERIC(15,0),
+@emailFuncionario VARCHAR(100),
+@escolaridadeFuncionario VARCHAR(200),
+@cargoFuncionario VARCHAR(100),
+@dtemissao DATETIME ,
+@dtdemissao DATETIME ,
+@sexoFuncionario VARCHAR(10),
+@estcivilFuncionario VARCHAR(20),
+@dtPgtoFuncionario DATETIME ,
+@valorSalarioFuncionario NUMERIC(10,2),
+@usuarioFuncionario VARCHAR(100),
+@senhaFuncionario VARCHAR(100)
+AS
+INSERT INTO Funcionario (nomeFuncionario, rgFuncionario, cpfFuncionario, dtNascFuncionario, endFuncionario, telFuncionario, whatsFuncionario, emailFuncionario, escolaridadeFuncionario, cargoFuncionario, dtemissao, dtdemissao, sexoFuncionario, estcivilFuncionario, dtPgtoFuncionario, valorSalarioFuncionario, usuarioFuncionario, senhaFuncionario)
+values (@nomeFuncionario, @rgFuncionario, @cpfFuncionario, @dtNascFuncionario, @endFuncionario, @telFuncionario, @whatsFuncionario, @emailFuncionario, @escolaridadeFuncionario, @cargoFuncionario, @dtemissao, @dtdemissao, @sexoFuncionario, @estcivilFuncionario, @dtPgtoFuncionario, @valorSalarioFuncionario, @usuarioFuncionario, @senhaFuncionario)
