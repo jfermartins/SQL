@@ -1,0 +1,8 @@
+create procedure [dbo].[pi_Disciplina]
+@nomeDisciplina varchar(100),
+@docenteDisciplina varchar(100),
+@cargaHorariaDisciplina numeric(10,0),
+@idFuncionario int
+as
+insert into Disciplina (nomeDisciplina,docenteDisciplina,cargaHorariaDisciplina,idFuncionario)
+values(@nomeDisciplina,@docenteDisciplina,@cargaHorariaDisciplina,@idFuncionario)
