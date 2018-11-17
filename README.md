@@ -1,3 +1,2 @@
 # SQL
-Teste SQL Tables, selects e joins
-Povoação de tables através de insert e função Delete
+Banco de dados criados para software de uma Escola de Informática (fictícia) como exigência para obtenção de diploma técnico em Informática.
