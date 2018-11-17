@@ -1,0 +1,8 @@
+CREATE PROCEDURE [dbo].[ps_loginFuncionario] (
+@usuarioFuncionario		VARCHAR (100),
+@senhaFuncionario		VARCHAR (50)
+)
+AS
+SELECT * FROM Funcionario
+WHERE usuarioFuncionario = @usuarioFuncionario
+AND senhaFuncionario = @senhaFuncionario
