@@ -1,0 +1,28 @@
+CREATE PROCEDURE [dbo].[pu_CadastroAluno]
+@nomeAluno   VARCHAR (100),    
+@rgAluno   VARCHAR (50),    
+@cpfAluno   NUMERIC (11,0),    
+@dnAluno   DATETIME,    
+@estadoCivilAluno VARCHAR (100),    
+@generoAluno  VARCHAR (20),    
+@enderecoAluno  VARCHAR (100),    
+@telResAluno  NUMERIC (11,0),    
+@celAluno   NUMERIC (11,0) = NULL,    
+@whatsAluno   NUMERIC (11,0) = NULL,    
+@emailAluno   VARCHAR (100),    
+@obsAluno   VARCHAR (8000)  
+AS    
+UPDATE Aluno
+SET nomeAluno = @nomeAluno,
+rgAluno = @rgAluno,
+cpfAluno = @cpfAluno,
+dnAluno = @dnAluno,
+estadoCivilAluno = @estadoCivilAluno,
+generoAluno = @generoAluno,
+enderecoAluno = @enderecoAluno,
+telResAluno = @telResAluno,
+celAluno = @celAluno,
+whatsAluno = @whatsAluno,
+emailAluno = @emailAluno,
+obsAluno = @obsAluno
+WHERE cpfAluno = @cpfAluno
