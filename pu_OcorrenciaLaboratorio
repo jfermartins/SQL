@@ -1,0 +1,16 @@
+CREATE PROCEDURE [dbo].[pu_OcorrenciaLaboratorio]
+@idOcorrenciaLaboratorio    INT,
+@natOcorLaboratorio         VARCHAR(100),
+@dtOcorLaboratorio          DATETIME,
+@hrOcorLaboratorio          DATETIME,
+@provOcrLaboratorio         VARCHAR(200),
+@solucaoOcorLaboratorio     VARCHAR(200) 
+AS
+UPDATE pu_OcorrenciaLaboratorio
+SET idOcorrenciaLaboratorio = @idOcorrenciaLaboratorio,
+natOcorLaboratorio = @natOcorLaboratorio,   
+dtOcorLaboratorio = @dtOcorLaboratorio, 
+hrOcorLaboratorio = @hrOcorLaboratorio,
+provOcrLaboratorio = @provOcrLaboratorio, 
+solucaoOcorLaboratorio = @solucaoOcorLaboratorio
+WHERE idOcorrenciaLaboratorio = @idOcorrenciaLaboratorio
