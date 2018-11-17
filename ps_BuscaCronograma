@@ -1,0 +1,6 @@
+create procedure [dbo].[ps_BuscaCronograma]
+@nomeDisciplina varchar(100)
+as
+select idDisciplina,nomeDisciplina
+from Disciplina
+where nomeDisciplina like '%' +  @nomeDisciplina + '%'
