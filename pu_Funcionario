@@ -1,0 +1,23 @@
+create procedure [dbo].[pu_Funcionario]
+@nomeFuncionario varchar(100),
+@rgFuncionario varchar(20),
+@cpfFuncionario numeric(11,0),
+@dtNascFuncionario datetime,
+@endFuncionario varchar(200),
+@telFuncionario numeric(15,0),
+@whatsFuncionario numeric(15,0),
+@emailFuncionario varchar(100),
+@escolaridadeFuncionario varchar(200),
+@cargoFuncionario varchar(100),
+@dtemissao datetime,
+@dtDemissao datetime,
+@sexoFuncionario varchar(10),
+@estcivilFuncionario varchar(20),
+@dtPgtoFuncionario datetime,
+@valorSalarioFuncionario numeric(10,2),
+@usuarioFuncionario varchar(100),
+@senhaFuncionario varchar(100)
+as 
+update Funcionario
+set nomeFuncionario=@nomeFuncionario,rgFuncionario=@rgFuncionario,dtNascFuncionario=@dtNascFuncionario,endFuncionario=@endFuncionario,telFuncionario=@telFuncionario,whatsFuncionario=@whatsFuncionario,emailFuncionario=@emailFuncionario,escolaridadeFuncionario=@escolaridadeFuncionario,cargoFuncionario=@cargoFuncionario,dtemissao=@dtemissao,dtDemissao=@dtDemissao,sexoFuncionario=@sexoFuncionario,estcivilFuncionario=@estcivilFuncionario,dtPgtoFuncionario=@dtPgtoFuncionario,valorSalarioFuncionario=@valorSalarioFuncionario,usuarioFuncionario=@usuarioFuncionario,senhaFuncionario=@senhaFuncionario
+where cpfFuncionario=@cpfFuncionario
