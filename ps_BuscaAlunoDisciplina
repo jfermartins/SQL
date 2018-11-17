@@ -1,0 +1,9 @@
+CREATE procedure [dbo].[ps_BuscaAlunoDisciplina]
+@nomeAluno varchar(100)
+as
+SELECT A.nomeAluno[Aluno],D.nomeDisciplina[Disciplina],A.idAluno,MA.idDisciplina 
+from Aluno A
+inner JOIN MatriculaAluno MA  on A.idAluno=MA.idAluno
+inner join Disciplina D on MA.idDisciplina=D.idDisciplina
+where nomeAluno like '%' +  @nomeAluno + '%'
+order by A.nomeAluno
