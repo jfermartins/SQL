@@ -1,0 +1,5 @@
+CREATE PROCEDURE [dbo].[ps_buscaDisciplinaMatricula]
+@nomeDisciplina varchar(100)
+as 
+select*from Disciplina
+where nomeDisciplina like '%' +  @nomeDisciplina + '%'
