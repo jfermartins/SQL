@@ -1,0 +1,7 @@
+create procedure [dbo].[ps_Sala]
+@dadosSala varchar(20) 
+as
+select C.dadosSala[Sala],C.DisciplinaSala[Disciplina],C.nomeDocenteSala[Docente],C.dtHrSala [Data e hora],C.turmaSala[Turma],C.idDisciplina[cod Disciplina],F.nomeFuncionario[Funcionario],C.idFuncionario[Cod Funcionario],idCronograma[CodSala]
+from CronogramaSala C
+inner join Funcionario F on C.idFuncionario=F.idFuncionario
+where dadosSala=@dadosSala
