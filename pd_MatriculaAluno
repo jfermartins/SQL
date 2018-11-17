@@ -1,0 +1,8 @@
+CREATE PROCEDURE [dbo].[pd_MatriculaAluno]
+@cpfAluno   NUMERIC (11,0)
+AS
+DECLARE @idAluno	INT
+SELECT @idAluno = idAluno
+FROM Aluno
+DELETE MatriculaAluno
+WHERE @idAluno = idAluno
