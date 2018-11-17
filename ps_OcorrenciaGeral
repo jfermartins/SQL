@@ -1,0 +1,6 @@
+CREATE PROCEDURE [dbo].[ps_OcorrenciaGeral]
+@codOcorrencia INT
+AS
+SELECT codOcorrencia, dtOcorrencia, hrOcorrencia, dtAtendOcorrencia, hrAtendOcorrencia, descrOcorrencia,nomeTecOcorrencia,regTecOcorrencia, setorTecOcorrencia, descrEquipOcorrencia, qtdEquipOcorrencia, nomeEnvOcorrencia, medidaOcorrencia, solucaoOcorrencia
+From OcorrenciaGeral
+WHERE codOcorrencia = @codOcorrencia
