@@ -1,0 +1,5 @@
+create procedure [dbo].[pd_Funcionario2]
+@usuarioFuncionario VARCHAR(100)
+as
+delete Funcionario
+where usuarioFuncionario = @usuarioFuncionario
