@@ -1,0 +1,19 @@
+create procedure [dbo].[pi_OcorrenciaGeral]
+@codOcorrencia              INTEGER,
+@dtOcorrencia               DATETIME,
+@hrOcorrencia               DATETIME,
+@dtAtendOcorrencia          DATETIME,
+@hrAtendOcorrencia         DATETIME,
+@descrOcorrencia           VARCHAR(200),
+@nomeTecOcorrencia         VARCHAR(20),
+@regTecOcorrencia          VARCHAR(20) ,
+@setorTecOcorrencia        VARCHAR(10),
+@descrEquipOcorrencia      VARCHAR(200),
+@qtdEquipOcorrencia        INTEGER,
+@nomeEnvOcorrencia         VARCHAR(20),
+@medidaOcorrencia          VARCHAR(200),
+@solucaoOcorrencia         VARCHAR(200),
+@idFuncionario int
+as
+insert into OcorrenciaGeral (codOcorrencia, dtOcorrencia, hrOcorrencia, dtAtendOcorrencia, hrAtendOcorrencia, descrOcorrencia,nomeTecOcorrencia,regTecOcorrencia, setorTecOcorrencia, descrEquipOcorrencia, qtdEquipOcorrencia, nomeEnvOcorrencia, medidaOcorrencia, solucaoOcorrencia,idFuncionario)
+values (@codOcorrencia, @dtOcorrencia, @hrOcorrencia, @dtAtendOcorrencia, @hrAtendOcorrencia, @descrOcorrencia, @nomeTecOcorrencia, @regTecOcorrencia, @setorTecOcorrencia, @descrEquipOcorrencia, @qtdEquipOcorrencia, @nomeEnvOcorrencia, @medidaOcorrencia, @solucaoOcorrencia,@idFuncionario)
