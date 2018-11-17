@@ -1,0 +1,5 @@
+create proc [dbo].[pd_Material] 
+@nomeMaterial VARCHAR(100)
+as
+delete Material
+where nomeMaterial = @nomeMaterial
