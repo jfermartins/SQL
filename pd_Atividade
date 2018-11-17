@@ -1,0 +1,5 @@
+create procedure [dbo].[pd_Atividade]
+@idAtividade int
+as
+delete Atividade
+where idAtividade=@idAtividade
